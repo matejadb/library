@@ -11,10 +11,18 @@
 }
 
 dialog {
-	width: 300px;
+	width: 350px;
 	height: 400px;
+	border-radius: 25px;
+	padding: 10px;
 	align-self: center;
 	justify-self: center;
+	border: none;
+}
+
+dialog div {
+	display: flex;
+	justify-content: end;
 }
 
 .container {
