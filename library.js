@@ -1,4 +1,8 @@
 const container = document.querySelector(".container");
+const dialog = document.querySelector("dialog");
+const AddBook = document.querySelector("dialog + button");
+const closeForm = document.querySelector(".close-form");
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -48,3 +52,11 @@ for (let i = 0; i < myLibrary.length; i++) {
 	book.append(title, author, pages, read);
 	container.appendChild(book);
 }
+
+AddBook.addEventListener("click", () => {
+	dialog.showModal();
+});
+
+closeForm.addEventListener("click", () => {
+	dialog.close();
+});
