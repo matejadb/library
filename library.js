@@ -16,6 +16,12 @@ function addBookToLibrary(title, author, pages, read) {
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("The Godfather", "Godfather Author", 350, true);
 addBookToLibrary("The Book Of Old", "Old Man", 400, false);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+addBookToLibrary("The Godfather", "Godfather Author", 350, true);
+addBookToLibrary("The Book Of Old", "Old Man", 400, false);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+addBookToLibrary("The Godfather", "Godfather Author", 350, true);
+addBookToLibrary("The Book Of Old", "Old Man", 400, false);
 
 for (let i = 0; i < myLibrary.length; i++) {
 	const book = document.createElement("div");
