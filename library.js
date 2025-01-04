@@ -47,42 +47,41 @@ form.addEventListener("submit", (e) => {
 		? "You've read the book"
 		: "You haven't read the book";
 
-	book.append(title, author, pages, read);
+	const buttonContainer = document.createElement("div");
+	buttonContainer.classList.add("button-container");
+
+	const removeBookButton = document.createElement("button");
+	removeBookButton.classList.add("remove-book");
+	removeBookButton.textContent = "Remove";
+
+	const addToReadButton = document.createElement("button");
+	addToReadButton.classList.add("add-read");
+	addToReadButton.textContent = "Add to read";
+
+	buttonContainer.append(removeBookButton, addToReadButton);
+	book.append(title, author, pages, read, buttonContainer);
+
 	container.appendChild(book);
 
 	form.reset();
 	dialog.close();
 });
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
-addBookToLibrary("The Godfather", "Godfather Author", 350, true);
-addBookToLibrary("The Book Of Old", "Old Man", 400, false);
-
-for (let i = 0; i < myLibrary.length; i++) {
-	const book = document.createElement("div");
-	book.classList.add("book");
-
-	const title = document.createElement("h1");
-	title.classList.add("book-title");
-	title.textContent = myLibrary[i].title;
-
-	const author = document.createElement("h2");
-	author.classList.add("book-author");
-	author.textContent = myLibrary[i].author;
-
-	const pages = document.createElement("p");
-	pages.classList.add("book-pages");
-	pages.textContent = myLibrary[i].pages + " pages";
-
-	const read = document.createElement("p");
-	read.classList.add("book-read");
-	read.textContent = myLibrary[i].read
-		? "You've read the book"
-		: "You haven't read the book";
-
-	book.append(title, author, pages, read);
-	container.appendChild(book);
-}
+container.addEventListener("click", (e) => {
+	if (e.target.classList.contains("remove-book")) {
+		const bookToRemove = e.target.closest(".book");
+		container.removeChild(bookToRemove);
+	}
+	if (e.target.classList.contains("add-read")) {
+		const bookContainer = e.target.closest(".book");
+		const readStatus = bookContainer.querySelector(".book-read");
+		if (readStatus.textContent === "You haven't read the book") {
+			readStatus.textContent = "You've read the book";
+		} else {
+			readStatus.textContent = "You haven't read the book";
+		}
+	}
+});
 
 AddBook.addEventListener("click", () => {
 	dialog.showModal();
