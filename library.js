@@ -72,6 +72,7 @@ container.addEventListener("click", (e) => {
 		const bookToRemove = e.target.closest(".book");
 		container.removeChild(bookToRemove);
 	}
+	/* NOT GOOD, WILL CHANGE */
 	if (e.target.classList.contains("add-read")) {
 		const bookContainer = e.target.closest(".book");
 		const readStatus = bookContainer.querySelector(".book-read");
