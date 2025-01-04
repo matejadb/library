@@ -33,7 +33,7 @@ form.addEventListener("submit", (e) => {
 	title.classList.add("book-title");
 	title.textContent = document.querySelector("#title").value;
 
-	const author = document.createElement("h2");
+	const author = document.createElement("h3");
 	author.classList.add("book-author");
 	author.textContent = document.querySelector("#author").value;
 
@@ -56,7 +56,7 @@ form.addEventListener("submit", (e) => {
 
 	const addToReadButton = document.createElement("button");
 	addToReadButton.classList.add("add-read");
-	addToReadButton.textContent = "Add to read";
+	addToReadButton.textContent = "Add read";
 
 	buttonContainer.append(removeBookButton, addToReadButton);
 	book.append(title, author, pages, read, buttonContainer);
