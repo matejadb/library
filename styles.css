@@ -6,13 +6,39 @@
 
 body {
 	background-color: #e2e8f0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
+/* NAV */
 .nav {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	height: 100px;
 	background-color: #ffffff;
+	padding: 0px 15px;
+	-webkit-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.51);
+	box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.51);
+}
+
+.nav h1 {
+	color: #064789;
+}
+
+.new-book {
+	padding: 15px;
+	width: 150px;
+	border-radius: 15px;
+	color: #ebf2fa;
+	font-weight: bold;
+	font-size: 15px;
+	border: none;
+	background-color: #427aa1;
+}
+
+.new-book:hover {
+	background-color: #064789;
+	cursor: pointer;
 }
 
 dialog {
