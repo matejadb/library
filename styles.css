@@ -53,7 +53,9 @@ dialog {
 }
 
 dialog div {
+	height: 5%;
 	display: flex;
+	align-items: center;
 	justify-content: end;
 }
 
