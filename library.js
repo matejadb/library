@@ -13,6 +13,10 @@ function Book(title, author, pages, read) {
 	this.read = read;
 }
 
+Book.prototype.changeStatus = function () {
+	this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
 	const book = new Book(title, author, pages, read);
 	myLibrary.push(book);
@@ -28,6 +32,7 @@ form.addEventListener("submit", (e) => {
 	);
 	const book = document.createElement("div");
 	book.classList.add("book");
+	book.dataset.index = myLibrary.length - 1;
 
 	const title = document.createElement("h1");
 	title.classList.add("book-title");
@@ -70,17 +75,27 @@ form.addEventListener("submit", (e) => {
 container.addEventListener("click", (e) => {
 	if (e.target.classList.contains("remove-book")) {
 		const bookToRemove = e.target.closest(".book");
+		const indexToRemove = bookToRemove.dataset.index;
+		myLibrary.splice(indexToRemove, 1);
 		container.removeChild(bookToRemove);
+
+		Array.from(container.querySelectorAll(".book")).forEach((book, index) => {
+			book.dataset.index = index;
+		});
 	}
-	/* NOT GOOD, WILL CHANGE */
+
 	if (e.target.classList.contains("add-read")) {
-		const bookContainer = e.target.closest(".book");
-		const readStatus = bookContainer.querySelector(".book-read");
-		if (readStatus.textContent === "You haven't read the book") {
-			readStatus.textContent = "You've read the book";
-		} else {
-			readStatus.textContent = "You haven't read the book";
-		}
+		const book = e.target.closest(".book");
+		const bookIndex = book.dataset.index;
+		const bookObject = myLibrary[bookIndex];
+		bookObject.changeStatus();
+		const readStatus = book.querySelector(".book-read");
+		readStatus.textContent = bookObject.read
+			? "You've read  the book"
+			: "You haven't read the book";
+
+		const statusButon = book.querySelector(".add-read");
+		statusButon.textContent = bookObject.read ? "Remove read" : "Add read";
 	}
 });
 
