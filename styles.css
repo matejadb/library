@@ -43,12 +43,12 @@ body {
 
 /* FORM */
 dialog {
+	background-color: #ffffff;
 	width: 350px;
 	height: 400px;
 	border-radius: 25px;
 	padding: 10px;
-	align-self: center;
-	justify-self: center;
+	margin: auto;
 	border: none;
 }
 
@@ -57,6 +57,65 @@ dialog div {
 	display: flex;
 	align-items: center;
 	justify-content: end;
+}
+
+.close-form {
+	background-color: #ffffff;
+	border: none;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.close-form:hover {
+	cursor: pointer;
+	color: #313030;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.book-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.read-status {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 30px;
+}
+
+input[type="text"] {
+	padding: 5px;
+	border: none;
+	background-color: rgb(239, 239, 239);
+	border-radius: 10px;
+	margin-bottom: 30px;
+}
+
+.submit-button {
+	display: flex;
+	justify-content: center;
+}
+
+input[type="submit"] {
+	padding: 15px;
+	width: 100px;
+	border-radius: 15px;
+	color: #ebf2fa;
+	font-weight: bold;
+	font-size: 15px;
+	border: none;
+	background-color: #427aa1;
+	margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+	background-color: #064789;
+	cursor: pointer;
 }
 
 /* BOOK CONTAINER */
